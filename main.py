@@ -117,27 +117,39 @@ def histograma(imagem):
 
 
 if __name__ == "__main__":
-    # Carregando imagem
-    print("Carregando a imagem")
-    imagem = Image.open("imagem.jpeg")
+    while True:
+        opcao = input("\nMenu\n"
+                      "1 - Aplicar filtro media\n"
+                      "2 - Aplicar filtro mediana\n"
+                      "3 - Histograma da imagem\n"
+                      "0 - Sair\n"
+                      "\n"
+                      "Opção: ")
 
-    # Aplicando filtro media
-    print("Aplicando o filtro media")
-    nova_imagem = media(imagem)
-    nova_imagem.save("out_media.png", "png")
+        # Carregando imagem caso a opcao for válida
+        if opcao in "123":
+            print("\nCarregando a imagem")
+            imagem = Image.open("imagem.jpeg")
 
-    # Aplicando filtro mediana
-    print("Aplicando o filtro mediana")
-    nova_imagem = mediana(imagem)
-    nova_imagem.save("out_mediana.png", "png")
+            # Aplicando filtro media
+            if opcao == "1":
+                print("Aplicando o filtro media")
+                nova_imagem = media(imagem)
+                nova_imagem.save("out_media.png", "png")
 
-    # Salvando Histograma
-    print("Salvando histograma da imagem")
-    texto  = list()
-    histograma = histograma(imagem)
-    for x in range(256):
-        texto.append("tom {}: {}\n".format(x, histograma[x]))
+            # Aplicando filtro mediana
+            elif opcao == "2":
+                print("Aplicando o filtro mediana")
+                nova_imagem = mediana(imagem)
+                nova_imagem.save("out_mediana.png", "png")
 
-    arquivo = open("out_histograma.txt", "w")
-    arquivo.writelines(texto)
-    arquivo.close()
+            # Histograma
+            elif opcao == "3":
+                print("Histograma da imagem")
+                texto = list()
+                histograma = histograma(imagem)
+                for x in range(256):
+                    print("tom {}: {}".format(x, histograma[x]))
+
+        elif opcao == "0":
+            break
