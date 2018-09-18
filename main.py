@@ -118,13 +118,13 @@ def histograma(imagem):
 
 if __name__ == "__main__":
     while True:
-        opcao = input("\nMenu\n"
+        opcao = (input("\nMenu\n"
                       "1 - Aplicar filtro media\n"
                       "2 - Aplicar filtro mediana\n"
                       "3 - Histograma da imagem\n"
                       "0 - Sair\n"
                       "\n"
-                      "Opção: ")
+                      "Opção: "))[0]
 
         # Carregando imagem caso a opcao for válida
         if opcao in "123":
@@ -146,10 +146,12 @@ if __name__ == "__main__":
             # Histograma
             elif opcao == "3":
                 print("Histograma da imagem")
-                texto = list()
-                histograma = histograma(imagem)
+                hist = histograma(imagem)
                 for x in range(256):
-                    print("tom {}: {}".format(x, histograma[x]))
+                    print("tom {}: {}".format(x, hist[x]))
 
         elif opcao == "0":
             break
+
+        else:
+            print("\nOpção inválida")
