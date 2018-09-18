@@ -3,7 +3,7 @@ from PIL import Image
 
 def get_pixels_vizinhos(imagem, xy):
     """
-    Retorna uma lista com os valores dos pixel entorno das coordenadas 'x y', incluindo ele
+    Retorna uma lista com os valores dos pixel entorno das coordenadas X e Y, incluindo ele
     :param imagem: Image
     :param xy: tuple
     :return: list
@@ -102,7 +102,7 @@ def histograma(imagem):
     return: list
     """
 
-    # cria uma lista de 256 posições para corresponder a cada tom de cor
+    # Cria uma lista de 256 posições para corresponder a cada tom de cor
     lista = list(range(256))
 
     # Percorre toda a imagem
